@@ -1,3 +1,4 @@
+/* FONTS */
 @import url("https://use.typekit.net/ams6ufq.css");
 
 @font-face {
@@ -10,6 +11,7 @@
          font-style: normal;
   }
 
+/* VARIABLE STYLES */
 :root {
     --red: #FF3C00;
     --black: #303030;
@@ -18,6 +20,7 @@
     --dark-grey: #D6D6D6;
 }
 
+/* HIGH LEVEL STYLES */
 *, ::before, ::after {
     box-sizing: border-box;
 }
@@ -40,10 +43,6 @@ a {
     text-decoration: none;
 }
 
-.black-letter {
-    font-family: 'Aktura-Regular';
-}
-
 p {
     margin-block-start: 0em;
     margin-block-end: 0em;
@@ -54,8 +53,21 @@ p {
 .p1 {
     font-size: 1.5556rem;
     line-height: 1.75;
+    text-align: justify;
 }
 
+.p2 {
+    font-size: .8333rem;
+    color: var(--dark-grey);
+}
+
+.section__header {
+    font-size: 2.5rem;
+    display: inline;
+    line-height: .6;
+}
+
+/* SPAN STYLES */
 .highlight {
     color: var(--red);
     border-bottom: 1px solid var(--red);
@@ -66,6 +78,11 @@ p {
     color: var(--red);
 }
 
+.black-letter {
+    font-family: 'Aktura-Regular';
+}
+
+/* AESTHETIC WITHOUT PURPOSE STYLES */
 .bg-grid {
     display: flex;
     justify-content: space-between;
@@ -85,6 +102,23 @@ p {
 
 .bg-grid div:nth-child(1){
     background-color: transparent;
+}
+
+/* HERO SECTION STYLES */
+.logo {
+    position: relative;
+    z-index: 999;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 24px;
+    color: black;
+}
+
+.logo div {
+    width: 1px;
+    height: 20px;
+    background-color: black;
 }
 
 main {
@@ -125,10 +159,8 @@ main p:nth-child(2){
     margin-bottom: 56px;
 }
 
-section {
-    display:none;
-}
 
+/* NAV STYLES */
 nav {
     position: fixed;
     top: 0;
@@ -140,6 +172,7 @@ nav {
     -webkit-writing-mode: vertical-lr;
     -ms-writing-mode: vertical-lr;
     display: flex;
+    z-index: 999;
 }
 
 nav div {
@@ -152,6 +185,10 @@ nav div {
     align-items: center;
 }
 
+nav div.active {
+    color: var(--red);
+}
+
 nav div:last-child{
     border-bottom: none;
 }
@@ -161,6 +198,7 @@ nav div:hover {
     cursor: pointer;
 }
 
+/* FOOTER STYLES */
 footer {
     position: absolute;
     bottom: 40px;
@@ -178,4 +216,147 @@ footer a {
 
 footer a:hover {
     color: var(--red);
+}
+
+/* PROJECTS SECTION */
+.bg__animation {
+    position: fixed;
+    inset: 0;
+    width: calc(100vw - 80px);
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bg__animation div {
+    border-right: 1px solid var(--grey);
+    width: calc(100% / 3);
+    height: 100%;
+    background-color: white;
+    transform: translateY(100%);
+    transition: ease-out 400ms;
+}
+
+.bg__animation div.active {
+    transform: translateY(0%);
+}
+
+.bg__animation div:nth-child(1){
+    transition: transform 800ms ease-in-out 50ms;
+}
+.bg__animation div:nth-child(2){
+    transition: transform 800ms ease-in-out 150ms;
+}
+.bg__animation div:nth-child(3){
+    transition: transform 800ms ease-in-out 250ms;
+}
+
+section {
+    position: fixed;
+    width: calc(100vw - 80px);
+    height: 100vh;
+    z-index: 998;
+    inset: 0;
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+section div {
+    height: 100%;
+}
+
+#projects {
+    display: none;
+    justify-content: stretch;
+    align-items: flex-end;
+}
+
+#projects.active{
+    display: flex;
+}
+
+#projects a {
+    width: calc(100% / 3);
+    padding: 32px;
+}
+
+#projects p {
+    margin-bottom: 8px;
+}
+
+.project__card img {
+    object-fit: cover;
+    height: 50%;
+    width: 100%;
+}
+
+#about {
+    display: none;
+    justify-content: stretch;
+    align-items: flex-end;
+}
+
+#about.active{
+    display: flex;
+}
+
+#about p {
+    width: calc((100% / 3) * 2);
+    padding: 0px 80px 80px 80px;
+}
+
+#about img {
+    object-fit: cover;
+    height: 66.6666%;
+    width: calc(100% / 3);
+    z-index: -2;
+}
+
+#contact {
+    display: none;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0px 80px 80px 80px;
+}
+
+#contact.active{
+    display: flex;
+}
+
+#contact a {
+    font-size: 8rem;
+    color: var(--dark-grey);
+    padding-bottom: 24px;
+}
+
+#contact a:hover {
+    color: var(--red);
+}
+
+/* #contact form { 
+    width: calc((100% / 3) * 2);
+    display: flex;
+    flex-direction: column;
+    padding: 0px 80px 80px 80px;
+}
+
+form input, form select {
+    margin-bottom: 56px;
+}
+
+input {
+    border: none;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--black);
+} */
+
+.close-btn {
+    position: fixed;
+    top: 80px;
+    right: 160px;
+    z-index: 999;
 }
